@@ -9,6 +9,9 @@ $(function(){
 		last = document.getElementById('last').value;
 		pass = document.getElementById('pass').value;
 		pass2 = document.getElementById('pass2').value;
+		if(last == ""){
+			last = " ";
+		}
 		if(user== "" || name=="" || last=="" || pass=="" || pass2==""){
 			mostrarAviso(2);
 			return false;

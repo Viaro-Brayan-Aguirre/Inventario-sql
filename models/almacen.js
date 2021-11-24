@@ -41,7 +41,7 @@ function getAlmacenByPlazaAndCategory(plaza, categoria, next) {
                 FROM almacen a 
                 JOIN productos p on a.idProducto = p.idProducto
                 JOIN categorias c on p.idCategoria = c.idCategoria AND c.nombre = ?
-                JOIN sucursales s on a.idSucursal = s.idSucursal AND s.plaza = ?` , [categoria, plaza], (error, resultado, fields) => {
+                JOIN sucursales s on a.idSucursal = s.idSucursal AND s.plaza = ? ORDER BY nombreProducto` , [categoria, plaza], (error, resultado, fields) => {
 
             next(error, resultado)
         })
@@ -53,7 +53,7 @@ function getAlmacenBySucursalAndCategory(idSucursal, categoria, next) {
                 FROM almacen a
                 JOIN productos p ON a.idProducto = p.idProducto
                 JOIN categorias c ON p.idCategoria = c.idCategoria AND c.nombre = ?
-                WHERE a.idSucursal = ?`  , [categoria, idSucursal] ,(error, resultado, fields) => {
+                WHERE a.idSucursal = ? ORDER BY nombreProducto`  , [categoria, idSucursal] ,(error, resultado, fields) => {
 
             next(error, resultado)
         })
@@ -65,7 +65,7 @@ function getConsumoByPlazaAndCategory(plaza, categoria, next) {
                 FROM almacen a 
                 JOIN productos p on a.idProducto = p.idProducto
                 JOIN categorias c on p.idCategoria = c.idCategoria AND c.nombre = ?
-                JOIN sucursales s on a.idSucursal = s.idSucursal AND s.plaza = ?` 
+                JOIN sucursales s on a.idSucursal = s.idSucursal AND s.plaza = ? ORDER BY nombreProducto` 
                 , [categoria, plaza], (error, resultado, fields) => {
 
             next(error, resultado)
@@ -78,7 +78,7 @@ function getConsumoBySucursalAndCategory(idSucursal, categoria, next) {
                 FROM almacen a
                 JOIN productos p ON a.idProducto = p.idProducto
                 JOIN categorias c ON p.idCategoria = c.idCategoria AND c.nombre = ?
-                WHERE a.idSucursal = ?` , [categoria, idSucursal] ,(error, resultado, fields) => {
+                WHERE a.idSucursal = ? ORDER BY nombreProducto` , [categoria, idSucursal] ,(error, resultado, fields) => {
 
             next(error, resultado)
         })

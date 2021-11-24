@@ -4,7 +4,7 @@ block contenido
   #page-wrapper
     .row
       .col-lg-12
-        h3.page-header Productos en existencia
+        h3.page-header Productos en exsitencia
     .row
       .col-lg-10.col-lg-offset-1
         form( id="formalmacen" style="display:inline" action="/almacen" method="POST")
@@ -12,16 +12,16 @@ block contenido
             .panel-body
               .col-lg-4
               .col-lg-4
+                //label Categoría:
+                select.form-control(id="categoria" name="categoria" style="display: none;" )
+                  for categoria in categorias
+                    option(name="1") #{categoria.nombre}
+              .col-lg-4
                 if usuario.permisos === 2
                   label Sucursal:
                   select.form-control(id="sucursal" name="plaza" )
                     for sucursal in sucursales
-                     option(name="1") #{sucursal.plaza}
-              .col-lg-4
-                label Categoría:
-                select.form-control(id="categoria" name="categoria" )
-                  for categoria in categorias
-                    option(name="1") #{categoria.nombre}  
+                     option(name="1") #{sucursal.plaza}  
               
     .row
       .col-lg-12
@@ -34,7 +34,7 @@ block contenido
                 tr
                   th Código
                   th Nombre
-                  th Cantidad
+                  th Existencia
                   if usuario.permisos < 2
                     th Acción
               tbody#tbodyid
@@ -74,7 +74,7 @@ block contenido
                 extend: 'pdf',
                 title: 'Almacen',
                 exportOptions: {
-                    columns: [ 0, 1, 2 ]
+                    columns: [ 2 ]
                 }
             }
         ]

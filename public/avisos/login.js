@@ -35,8 +35,8 @@ switch(error) {
             +"data-dismiss='alert' aria-hidden='true'>&times;</button>Contraseña incorrecta!.</div>");
         break;
     case 5:
-        $("#aviso").html("<div class='alert alert-danger alert-dismissable'><button type='button' class='close'"
-            +"data-dismiss='alert' aria-hidden='true'>&times;</button>Ambos campos son requeridos!.</div>");
+        /*$("#aviso").html("<div class='alert alert-danger alert-dismissable'><button type='button' class='close'"
+            +"data-dismiss='alert' aria-hidden='true'>&times;</button>Ambos campos son requeridos!.</div>");*/
         break;
     default:
         break;
